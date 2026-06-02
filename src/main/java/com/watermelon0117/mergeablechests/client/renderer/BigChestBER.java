@@ -1,7 +1,8 @@
 package com.watermelon0117.mergeablechests.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Quaternion;
+import com.mojang.math.Vector3f;
 import com.watermelon0117.mergeablechests.blockentities.BigChestBlockEntity;
 import com.watermelon0117.mergeablechests.blocks.BigChestBlock;
 import com.watermelon0117.mergeablechests.blocks.ChestCaseBlock;
@@ -19,8 +20,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.data.ModelData;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
 
 public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
     private final BlockEntityRendererProvider.Context context;
@@ -51,13 +50,13 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
             poseStack.translate(-dir.step().x() * be.width() - 1.0 / 16,
                     be.height() - 7.0 / 16,
                     -dir.step().z() * be.depth() - 1.0 / 16);
-            poseStack.mulPose(rotationAround(dir.getClockWise(), openness));
+            poseStack.mulPose(new Quaternion(dir.getClockWise().step(), openness, false));
             poseStack.translate(dir.step().x() * be.width() + 1.0 / 16,
                     -(be.height() - 7.0 / 16),
                     dir.step().z() * be.depth() + 1.0 / 16);
         } else {
             poseStack.translate(1.0 / 16, be.height() - 7.0 / 16, 1.0 / 16);
-            poseStack.mulPose(rotationAround(dir.getClockWise(), openness));
+            poseStack.mulPose(new Quaternion(dir.getClockWise().step(), openness, false));
             poseStack.translate(-1.0 / 16, -(be.height() - 7.0 / 16), -1.0 / 16);
         }
         renderEntireCase(be, poseStack, bufferSource);
@@ -324,7 +323,8 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
         poseStack.pushPose();
         poseStack.translate(pos.x() + offsetX, pos.y() + offsetY, pos.z() + offsetZ);
         poseStack.translate(0.5D, 0.5D, 0.5D);
-        poseStack.mulPose(Axis.YP.rotationDegrees(-dir.toYRot()));
+        poseStack.mulPose(new Quaternion(new Vector3f(0, 1, 0),
+                -(dir.toYRot()) / 360.0F * 2.0F * (float) Math.PI, false));
         poseStack.translate(-0.5D, -0.5D, -0.5D);
         renderBlockPartAtCurrentPose(be, state, lightPos, poseStack, bufferSource, renderType);
         poseStack.popPose();
@@ -374,11 +374,6 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
             case 14 -> BlockInit.CHEST_SIDE_14.get();
             default -> BlockInit.CHEST_SIDE_15.get();
         };
-    }
-
-    private static Quaternionf rotationAround(Direction direction, float radians) {
-        return new Quaternionf().fromAxisAngleRad(
-                direction.getStepX(), direction.getStepY(), direction.getStepZ(), radians);
     }
 
     private Block getCaseChest(int f) {

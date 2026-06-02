@@ -1,6 +1,7 @@
 package com.watermelon0117.mergeablechests.init;
 
 import com.watermelon0117.mergeablechests.MergeableChests;
+import com.watermelon0117.mergeablechests.base.ModArmorMaterial;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;

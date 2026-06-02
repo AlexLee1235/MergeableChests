@@ -1,1 +1,1 @@
-mergeablechests,com.watermelon0117.mergeablechests,MergeableChests,forge-1.20.1-47.4.10
+mergeablechests,com.watermelon0117.mergeablechests,MergeableChests,forge-1.19.2-43.2.21

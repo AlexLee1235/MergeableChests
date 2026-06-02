@@ -1,6 +1,7 @@
 package com.watermelon0117.mergeablechests.init;
 
 import com.watermelon0117.mergeablechests.MergeableChests;
+import com.watermelon0117.mergeablechests.base.FluidRegistryContainer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Blocks;

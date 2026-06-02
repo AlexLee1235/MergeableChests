@@ -121,7 +121,7 @@ public class BigChestMenu extends AbstractContainerMenu {
         if (scrollRowOffset != clamped) {
             scrollRowOffset = clamped;
             refreshVisibleSlots();
-            if (!player.level().isClientSide) {
+            if (!player.level.isClientSide) {
                 broadcastFullState();
             }
         }
@@ -280,6 +280,16 @@ public class BigChestMenu extends AbstractContainerMenu {
             if (isActive()) {
                 menu.chestContainer.setItem(getGlobalSlot(), stack);
                 super.set(stack);
+            }
+        }
+
+        @Override
+        public void initialize(ItemStack stack) {
+            if (isActive()) {
+                menu.chestContainer.setItem(getGlobalSlot(), stack);
+                super.initialize(stack);
+            } else {
+                super.initialize(ItemStack.EMPTY);
             }
         }
 
