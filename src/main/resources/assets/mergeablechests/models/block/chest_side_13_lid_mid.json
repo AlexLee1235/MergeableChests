@@ -1,0 +1,16 @@
+{
+  "ambientocclusion": false,
+  "parent": "mergeablechests:block/no_ao_block",
+  "textures": {
+    "north": "mergeablechests:blocks/chest_side_13_lid_mid"
+  },
+  "elements": [
+    {
+      "from": [ 0, 0, 1 ],
+      "to": [ 15, 10, 1 ],
+      "faces": {
+        "north": { "texture": "#north" }
+      }
+    }
+  ]
+}

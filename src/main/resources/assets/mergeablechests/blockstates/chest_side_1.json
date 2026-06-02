@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    { "when": { "facing": "north", "lid": "normal" }, "apply": { "model": "mergeablechests:block/chest_side_1" } },
+    { "when": { "facing": "east", "lid": "normal" }, "apply": { "model": "mergeablechests:block/chest_side_1", "y": 90 } },
+    { "when": { "facing": "south", "lid": "normal" }, "apply": { "model": "mergeablechests:block/chest_side_1", "y": 180 } },
+    { "when": { "facing": "west", "lid": "normal" }, "apply": { "model": "mergeablechests:block/chest_side_1", "y": 270 } },
+    { "when": { "facing": "north", "lid": "mid" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_mid" } },
+    { "when": { "facing": "east", "lid": "mid" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_mid", "y": 90 } },
+    { "when": { "facing": "south", "lid": "mid" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_mid", "y": 180 } },
+    { "when": { "facing": "west", "lid": "mid" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_mid", "y": 270 } },
+    { "when": { "facing": "north", "lid": "left" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_left" } },
+    { "when": { "facing": "east", "lid": "left" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_left", "y": 90 } },
+    { "when": { "facing": "south", "lid": "left" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_left", "y": 180 } },
+    { "when": { "facing": "west", "lid": "left" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_left", "y": 270 } },
+    { "when": { "facing": "north", "lid": "right" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_right" } },
+    { "when": { "facing": "east", "lid": "right" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_right", "y": 90 } },
+    { "when": { "facing": "south", "lid": "right" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_right", "y": 180 } },
+    { "when": { "facing": "west", "lid": "right" }, "apply": { "model": "mergeablechests:block/chest_side_1_lid_right", "y": 270 } }
+  ]
+}

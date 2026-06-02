@@ -1,0 +1,5 @@
+{
+  "ambientocclusion": false,
+  "parent": "mergeablechests:block/no_ao_cube_top",
+  "textures": {
+    "up": "mergeablechests:blocks/chest_in_top_12", "side": "mergeablechests:blocks/transparent"}}

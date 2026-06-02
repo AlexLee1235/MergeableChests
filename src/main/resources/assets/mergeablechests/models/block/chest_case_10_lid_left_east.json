@@ -1,0 +1,21 @@
+{
+  "ambientocclusion": false,
+  "parent": "mergeablechests:block/no_ao_block",
+  "textures": {
+    "up": "mergeablechests:blocks/chest_10",
+    "down": "mergeablechests:blocks/chest_case_down_10",
+    "west": "mergeablechests:blocks/case_3",
+    "east": "mergeablechests:blocks/case_3_lid_left"
+  },
+  "elements": [
+    {   "from": [ 1, 9, 0 ],
+      "to": [ 15, 14, 16 ],
+      "faces": {
+        "down":  { "texture": "#down", "cullface": "down" },
+        "up":    { "texture": "#up" },
+        "west": { "texture": "#west" },
+        "east":  { "texture": "#east" }
+      }
+    }
+  ]
+}

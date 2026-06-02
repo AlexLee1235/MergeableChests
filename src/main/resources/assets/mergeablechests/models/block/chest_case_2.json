@@ -1,0 +1,19 @@
+{
+  "ambientocclusion": false,
+  "parent": "mergeablechests:block/no_ao_block",
+  "textures": {
+    "up": "mergeablechests:blocks/chest_2",
+    "down": "mergeablechests:blocks/chest_case_down_2",
+    "east": "mergeablechests:blocks/case_3"
+  },
+  "elements": [
+    {   "from": [ 0, 9, 0 ],
+      "to": [ 15, 14, 16 ],
+      "faces": {
+        "down":  { "texture": "#down", "cullface": "down" },
+        "up":    { "texture": "#up" },
+        "east":  { "texture": "#east" }
+      }
+    }
+  ]
+}

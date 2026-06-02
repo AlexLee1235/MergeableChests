@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "lid=normal": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=mid_north": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=mid_south": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=mid_east": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=mid_west": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=left_north": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=left_south": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=left_east": { "model": "mergeablechests:block/chest_case_3_lid_left_east" },
+    "lid=left_west": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=right_north": { "model": "mergeablechests:block/chest_case_3_lid_right_north" },
+    "lid=right_south": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=right_east": { "model": "mergeablechests:block/chest_case_3" },
+    "lid=right_west": { "model": "mergeablechests:block/chest_case_3" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "mergeablechests:block/lid" },
+    "facing=east": { "model": "mergeablechests:block/lid", "y": 90 },
+    "facing=south": { "model": "mergeablechests:block/lid", "y": 180 },
+    "facing=west": { "model": "mergeablechests:block/lid", "y": 270 }
+  }
+}
