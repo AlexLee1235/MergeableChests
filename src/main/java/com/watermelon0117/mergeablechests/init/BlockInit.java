@@ -5,7 +5,6 @@ import com.watermelon0117.mergeablechests.blocks.BigChestBlock;
 import com.watermelon0117.mergeablechests.blocks.BigChestBlockItem;
 import com.watermelon0117.mergeablechests.blocks.ChestCaseBlock;
 import com.watermelon0117.mergeablechests.blocks.ChestSideBlock;
-import com.watermelon0117.mergeablechests.blocks.IntersectBlock;
 import com.watermelon0117.mergeablechests.blocks.LidBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -21,11 +20,6 @@ public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MergeableChests.MODID);
     public static final DeferredRegister<Item> BLOCK_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MergeableChests.MODID);
 
-    public static final RegistryObject<Block> INTERSECT = BLOCKS.register("intersect",
-            () -> new IntersectBlock(BlockBehaviour.Properties.copy(Blocks.STONE)
-                    .strength(1f).explosionResistance(1f).noOcclusion().noCollission()));
-    public static final RegistryObject<BlockItem> INTERSECT_BLOCK_ITEM = BLOCK_ITEMS.register("intersect",
-            () -> new BlockItem(INTERSECT.get(), new Item.Properties()));
     public static final RegistryObject<Block> BIG_CHEST = BLOCKS.register("big_chest",
             () -> new BigChestBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(2.5F).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistryObject<BlockItem> BIG_CHEST_BLOCK_ITEM = BLOCK_ITEMS.register("big_chest",

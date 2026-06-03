@@ -17,7 +17,6 @@ public class CreativeModeTabInit {
                     .icon(() -> Items.CRAFTING_TABLE.getDefaultInstance())
                     .displayItems((parameters, output) -> {
                         output.accept(BlockInit.BIG_CHEST_BLOCK_ITEM.get());
-                        output.accept(BlockInit.INTERSECT_BLOCK_ITEM.get());
                     })
                     .build());
 }

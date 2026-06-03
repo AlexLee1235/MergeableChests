@@ -2,7 +2,6 @@ package com.watermelon0117.mergeablechests.event;
 
 import com.watermelon0117.mergeablechests.MergeableChests;
 import com.watermelon0117.mergeablechests.client.renderer.BigChestBER;
-import com.watermelon0117.mergeablechests.client.renderer.IntersectBER;
 import com.watermelon0117.mergeablechests.client.screen.BigChestScreen;
 import com.watermelon0117.mergeablechests.init.BlockEntityInit;
 import com.watermelon0117.mergeablechests.init.MenuInit;
@@ -22,7 +21,6 @@ public class ModClientEvents {
 
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(BlockEntityInit.INTERSECT_BE.get(), IntersectBER::new);
         event.registerBlockEntityRenderer(BlockEntityInit.BIG_CHEST_BE.get(), BigChestBER::new);
     }
 }
