@@ -2,9 +2,9 @@
   "ambientocclusion": false,
   "parent": "mergeablechests:block/no_ao_block",
   "textures": {
-    "up": "mergeablechests:blocks/chest_8",
-    "down": "mergeablechests:blocks/chest_case_down_8",
-    "west": "mergeablechests:blocks/case_3_lid_mid"
+    "up": "mergeablechests:block/chest_8",
+    "down": "mergeablechests:block/chest_case_down_8",
+    "west": "mergeablechests:block/case_3_lid_mid"
   },
   "elements": [
     {   "from": [ 1, 9, 0 ],

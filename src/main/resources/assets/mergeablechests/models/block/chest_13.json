@@ -2,7 +2,7 @@
   "ambientocclusion": false,
   "parent": "mergeablechests:block/no_ao_cube_top",
   "textures": {
-    "up": "mergeablechests:blocks/chest_13",
-    "side": "mergeablechests:blocks/transparent"
+    "up": "mergeablechests:block/chest_13",
+    "side": "mergeablechests:block/transparent"
   }
 }

@@ -3,8 +3,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mergeablechests:blocks/lid",
-		"particle": "mergeablechests:blocks/lid"
+		"0": "mergeablechests:block/lid",
+		"particle": "mergeablechests:block/lid"
 	},
 	"elements": [
 		{

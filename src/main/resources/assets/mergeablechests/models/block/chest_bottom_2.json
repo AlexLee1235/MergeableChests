@@ -1,1 +1,1 @@
-{"ambientocclusion": false, "parent": "mergeablechests:block/no_ao_block", "textures": {"bottom": "mergeablechests:blocks/chest_2"}, "elements": [{"from": [0, 0, 0], "to": [16, 16, 16], "faces": {"down": {"uv": [16, 0, 0, 16], "texture": "#bottom"}}}]}
+{"ambientocclusion": false, "parent": "mergeablechests:block/no_ao_block", "textures": {"bottom": "mergeablechests:block/chest_2"}, "elements": [{"from": [0, 0, 0], "to": [16, 16, 16], "faces": {"down": {"uv": [16, 0, 0, 16], "texture": "#bottom"}}}]}

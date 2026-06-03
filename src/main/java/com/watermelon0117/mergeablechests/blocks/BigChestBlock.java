@@ -50,7 +50,7 @@ public class BigChestBlock extends Block implements EntityBlock{
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext p_49820_) {
-        return this.defaultBlockState().setValue(FACING, p_49820_.getPlayer().getDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, p_49820_.getHorizontalDirection().getOpposite());
     }
 
     @Nullable

@@ -2,11 +2,11 @@
   "ambientocclusion": false,
   "parent": "mergeablechests:block/no_ao_block",
   "textures": {
-    "up": "mergeablechests:blocks/chest_14",
-    "down": "mergeablechests:blocks/chest_case_down_14",
-    "west": "mergeablechests:blocks/case_2",
-    "south": "mergeablechests:blocks/case_0",
-    "east": "mergeablechests:blocks/case_1_lid_right"
+    "up": "mergeablechests:block/chest_14",
+    "down": "mergeablechests:block/chest_case_down_14",
+    "west": "mergeablechests:block/case_2",
+    "south": "mergeablechests:block/case_0",
+    "east": "mergeablechests:block/case_1_lid_right"
   },
   "elements": [
     {   "from": [ 1, 9, 0 ],

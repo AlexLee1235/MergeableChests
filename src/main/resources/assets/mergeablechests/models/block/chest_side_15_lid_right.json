@@ -2,7 +2,7 @@
   "ambientocclusion": false,
   "parent": "mergeablechests:block/no_ao_block",
   "textures": {
-    "north": "mergeablechests:blocks/chest_side_15_lid_right"
+    "north": "mergeablechests:block/chest_side_15_lid_right"
   },
   "elements": [
     {
