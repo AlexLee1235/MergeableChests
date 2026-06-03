@@ -72,8 +72,15 @@ public class BigChestBlockEntity extends BlockEntity implements Container {
 
     @Override
     public AABB getRenderBoundingBox() {
+        if (level == null) {
+            return new AABB(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(),
+                    this.getBlockPos().getX() + 1, this.getBlockPos().getY() + 1, this.getBlockPos().getZ() + 1);
+        }
+        int width = Math.max(1, width());
+        int depth = Math.max(1, depth());
+        int height = Math.max(1, height());
         return new AABB(this.getBlockPos().getX(), this.getBlockPos().getY(), this.getBlockPos().getZ(),
-                this.getBlockPos().getX() + 10, this.getBlockPos().getY() + 10, this.getBlockPos().getZ() + 10);
+                this.getBlockPos().getX() + width, this.getBlockPos().getY() + height, this.getBlockPos().getZ() + depth);
     }
 
     public static void lidAnimateTick(Level level, BlockPos pos, BlockState state, BigChestBlockEntity blockEntity) {
