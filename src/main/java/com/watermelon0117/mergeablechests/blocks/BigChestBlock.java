@@ -108,6 +108,30 @@ public class BigChestBlock extends Block implements EntityBlock{
         return Block.box(minX, 0.0D, minZ, maxX, maxY, maxZ);
     }
 
+    private static boolean isBlocked(Level level, BlockPos rootPos) {
+        if (!level.getBlockState(rootPos).is(BlockInit.BIG_CHEST.get())) {
+            return false;
+        }
+
+        int width = BigChestBlockEntity.width(level, rootPos);
+        int depth = BigChestBlockEntity.depth(level, rootPos, width);
+        int height = BigChestBlockEntity.height(level, rootPos, width, depth);
+        if (width <= 0 || depth <= 0 || height <= 0) {
+            return false;
+        }
+
+        for (int z = 0; z < depth; z++) {
+            for (int x = 0; x < width; x++) {
+                BlockPos above = rootPos.offset(x, height, z);
+                if (level.getBlockState(above).isRedstoneConductor(level, above)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
     @Override
     public InteractionResult use(BlockState p_60503_, Level p_60504_, BlockPos p_60505_, Player p_60506_, InteractionHand p_60507_, BlockHitResult p_60508_) {
         if (p_60506_.getItemInHand(p_60507_).getItem() == BlockInit.BIG_CHEST_BLOCK_ITEM.get()) {
@@ -125,6 +149,10 @@ public class BigChestBlock extends Block implements EntityBlock{
         BlockPos rootPos = BigChestBlockEntity.findRoot(p_60504_, p_60505_);
         if (!(p_60504_.getBlockEntity(rootPos) instanceof BigChestBlockEntity rootEntity)) {
             return InteractionResult.PASS;
+        }
+
+        if (isBlocked(p_60504_, rootPos)) {
+            return InteractionResult.CONSUME;
         }
 
         List<BigChestBlockEntity> blocks = BigChestBlockEntity.collectMergedBlocks(p_60504_, rootPos);
