@@ -188,7 +188,9 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
         BlockState state = getSideChest(flag).defaultBlockState()
                 .setValue(ChestSideBlock.FACING, dir.getOpposite())
                 .setValue(ChestSideBlock.LID, frontBodyLidPart(be, dir, pos));
-        renderBlockPart(be, state, pos, poseStack, bufferSource, RenderType.solid(), 0.0D, 0.0D, 0.0D);
+        Vector3f lightPos = new Vector3f(pos.x() + dir.step().x(), pos.y(), pos.z() + dir.step().z());
+        renderBlockPart(be, state, pos, poseStack, bufferSource, RenderType.solid(), 0.0D, 0.0D, 0.0D,
+                lightPos);
     }
 
     private ChestSideBlock.LidPart frontBodyLidPart(BigChestBlockEntity be, Direction dir, Vector3f pos) {
