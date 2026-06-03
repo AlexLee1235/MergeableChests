@@ -16,9 +16,15 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.BlockAndTintGetter;
+import net.minecraft.world.level.ColorResolver;
+import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.lighting.LevelLightEngine;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.client.model.data.ModelData;
 
 public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
@@ -328,7 +334,7 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
         poseStack.mulPose(new Quaternion(new Vector3f(0, 1, 0),
                 -(dir.toYRot()) / 360.0F * 2.0F * (float) Math.PI, false));
         poseStack.translate(-0.5D, -0.5D, -0.5D);
-        renderBlockPartAtCurrentPose(be, state, lightPos, poseStack, bufferSource, renderType);
+        renderBlockPartAtCurrentPose(be, state, lightPos, pos, poseStack, bufferSource, renderType);
         poseStack.popPose();
     }
 
@@ -344,17 +350,78 @@ public class BigChestBER implements BlockEntityRenderer<BigChestBlockEntity> {
                                  double offsetX, double offsetY, double offsetZ, Vector3f lightPos) {
         poseStack.pushPose();
         poseStack.translate(pos.x() + offsetX, pos.y() + offsetY, pos.z() + offsetZ);
-        renderBlockPartAtCurrentPose(be, state, lightPos, poseStack, bufferSource, renderType);
+        renderBlockPartAtCurrentPose(be, state, lightPos, pos, poseStack, bufferSource, renderType);
         poseStack.popPose();
     }
 
     private void renderBlockPartAtCurrentPose(BigChestBlockEntity be, BlockState state, Vector3f lightPos,
+                                              Vector3f brightnessPos,
                                               PoseStack poseStack, MultiBufferSource bufferSource,
                                               RenderType renderType) {
         Level level = be.getLevel();
         BlockPos piecePos = be.getBlockPos().offset((int) lightPos.x(), (int) lightPos.y(), (int) lightPos.z());
-        context.getBlockRenderDispatcher().renderBatched(state, piecePos, level, poseStack,
+        BlockPos brightnessBlockPos = be.getBlockPos().offset(
+                (int) brightnessPos.x(), (int) brightnessPos.y(), (int) brightnessPos.z());
+        // Vanilla chest renderers light the model from chest block positions. Keep renderBatched for directional
+        // face shade, but prevent its neighbor-position light sample from becoming black next to opaque blocks.
+        context.getBlockRenderDispatcher().renderBatched(state, piecePos,
+                new FixedBrightnessGetter(level, brightnessBlockPos), poseStack,
                 bufferSource.getBuffer(renderType), false, random, ModelData.EMPTY, renderType);
+    }
+
+    private static class FixedBrightnessGetter implements BlockAndTintGetter {
+        private final BlockAndTintGetter delegate;
+        private final BlockPos brightnessPos;
+
+        private FixedBrightnessGetter(BlockAndTintGetter delegate, BlockPos brightnessPos) {
+            this.delegate = delegate;
+            this.brightnessPos = brightnessPos;
+        }
+
+        @Override
+        public float getShade(Direction direction, boolean shade) {
+            return delegate.getShade(direction, shade);
+        }
+
+        @Override
+        public LevelLightEngine getLightEngine() {
+            return delegate.getLightEngine();
+        }
+
+        @Override
+        public int getBlockTint(BlockPos pos, ColorResolver colorResolver) {
+            return delegate.getBlockTint(pos, colorResolver);
+        }
+
+        @Override
+        public int getBrightness(LightLayer lightLayer, BlockPos pos) {
+            return delegate.getBrightness(lightLayer, brightnessPos);
+        }
+
+        @Override
+        public BlockEntity getBlockEntity(BlockPos pos) {
+            return delegate.getBlockEntity(pos);
+        }
+
+        @Override
+        public BlockState getBlockState(BlockPos pos) {
+            return delegate.getBlockState(pos);
+        }
+
+        @Override
+        public FluidState getFluidState(BlockPos pos) {
+            return delegate.getFluidState(pos);
+        }
+
+        @Override
+        public int getHeight() {
+            return delegate.getHeight();
+        }
+
+        @Override
+        public int getMinBuildHeight() {
+            return delegate.getMinBuildHeight();
+        }
     }
 
     private Block getSideChest(int f) {
