@@ -1,6 +1,5 @@
 {
 	"itemGroup.mergeablechests": "Mergeable Chests",
-	"container.mergeablechests.big_chest": "Big Chest",
-	"block.mergeablechests.big_chest": "Big Chest",
-	"block.mergeablechests.intersect": "Intersect"
+	"container.mergeablechests.big_chest": "Mergeable Chest",
+	"block.mergeablechests.big_chest": "Mergeable Chest"
 }
