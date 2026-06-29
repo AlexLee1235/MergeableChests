@@ -1,6 +1,8 @@
 package com.watermelon0117.mergeablechests;
 
 import com.watermelon0117.mergeablechests.init.*;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -22,6 +24,12 @@ public class MergeableChests {
         RecipeInit.RECIPE_SERIALIZERS.register(bus);
         FluidInit.FLUID_TYPES.register(bus);
         FluidInit.FLUIDS.register(bus);
-        CreativeModeTabInit.CREATIVE_MODE_TABS.register(bus);
+        bus.addListener(this::addCreative);
+    }
+
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (CreativeModeTabs.FUNCTIONAL_BLOCKS.equals(event.getTabKey())) {
+            event.accept(BlockInit.BIG_CHEST_BLOCK_ITEM);
+        }
     }
 }
