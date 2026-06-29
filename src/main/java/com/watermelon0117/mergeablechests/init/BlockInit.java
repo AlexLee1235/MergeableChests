@@ -7,6 +7,7 @@ import com.watermelon0117.mergeablechests.blocks.ChestCaseBlock;
 import com.watermelon0117.mergeablechests.blocks.ChestSideBlock;
 import com.watermelon0117.mergeablechests.blocks.LidBlock;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,7 +24,7 @@ public class BlockInit {
     public static final RegistryObject<Block> BIG_CHEST = BLOCKS.register("big_chest",
             () -> new BigChestBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).strength(2.5F).sound(SoundType.WOOD).noOcclusion()));
     public static final RegistryObject<BlockItem> BIG_CHEST_BLOCK_ITEM = BLOCK_ITEMS.register("big_chest",
-            () -> new BigChestBlockItem(BIG_CHEST.get(), new Item.Properties().tab(MergeableChests.TAB)));
+            () -> new BigChestBlockItem(BIG_CHEST.get(), new Item.Properties().tab(CreativeModeTab.TAB_DECORATIONS)));
     public static final RegistryObject<Block> LID = BLOCKS.register("lid",
             () -> new LidBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion().noCollission()));
     public static final RegistryObject<Block> CHEST_0 = BLOCKS.register("chest_0",

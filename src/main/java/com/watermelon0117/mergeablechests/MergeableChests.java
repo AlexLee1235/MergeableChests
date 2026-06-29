@@ -1,10 +1,6 @@
 package com.watermelon0117.mergeablechests;
 
 import com.watermelon0117.mergeablechests.init.*;
-import net.minecraft.core.NonNullList;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -27,11 +23,4 @@ public class MergeableChests {
         FluidInit.FLUID_TYPES.register(bus);
         FluidInit.FLUIDS.register(bus);
     }
- 
-    public static final CreativeModeTab TAB = new CreativeModeTab(MODID) {
-        @Override
-        public ItemStack makeIcon() {
-            return Items.CRAFTING_TABLE.getDefaultInstance();
-        }
-    };
 }
